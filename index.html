@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ดาวน์โหลดไฟล์งาน</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding-top: 80px;
+    }
+    h1 {
+      color: #333;
+    }
+    button {
+      padding: 15px 30px;
+      font-size: 18px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+    .counter {
+      margin-top: 40px;
+      font-size: 14px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <h1>📄 ดาวน์โหลดแบบฟอร์ม</h1>
+  <a href="https://drive.google.com/uc?export=download&id=1L2Anbuty3qAi_tnRmZOJTZjZcJzL5iyi" download>
+    
+    <button>📥 ดาวน์โหลด</button>
+  </a>
+
+  <div class="counter">
+    👀 ผู้เข้าชมขณะนี้: <span id="viewCount">0</span> คน
+  </div>
+
+  <script>
+    // นับจำนวนผู้เข้าชมด้วย localStorage
+    const viewKey = "page_view_count";
+    let views = localStorage.getItem(viewKey);
+
+    if (!views) {
+      views = 1;
+    } else {
+      views = parseInt(views) + 1;
+    }
+
+    localStorage.setItem(viewKey, views);
+    document.getElementById("viewCount").textContent = views;
+  </script>
+</body>
+</html>
